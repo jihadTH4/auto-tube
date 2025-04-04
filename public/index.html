@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoTube - YouTube Downloader</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Add a Favicon later -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+</head>
+<body>
+
+    <header>
+        <div class="logo">AutoTube</div>
+        <h1>YouTube Video Downloader</h1>
+        <p>Paste a YouTube video URL to download</p>
+    </header>
+
+    <main>
+        <form id="downloadForm">
+            <label for="youtubeUrl" class="sr-only">YouTube URL</label>
+            <input type="url" id="youtubeUrl" placeholder="Paste YouTube Video URL here" required>
+            <button type="submit" id="fetchButton">Fetch Video</button>
+        </form>
+
+        <div id="loading" class="status" style="display: none;">
+            <div class="spinner"></div>
+            Fetching video details...
+        </div>
+
+        <div id="error" class="status error-message" style="display: none;"></div>
+
+        <div id="results" style="display: none;">
+            <h2 id="videoTitle"></h2>
+            <img id="videoThumbnail" src="" alt="Video Thumbnail">
+            <h3>Available Downloads:</h3>
+            <ul id="downloadLinks">
+                <!-- Download links will be inserted here by JavaScript -->
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>Disclaimer:</strong> Please respect YouTube's Terms of Service and copyright laws. Download videos only if you have permission from the copyright holder or if the content is available under a permissive license.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

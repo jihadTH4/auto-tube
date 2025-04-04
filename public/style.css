@@ -1,0 +1,238 @@
+/* Basic Reset & Defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    display: inline-block;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 5px 15px;
+    color: white;
+    background: linear-gradient(to right, #e61e1e, #e664a6); /* Red to Pink */
+    border-radius: 8px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+h1 {
+    margin-bottom: 5px;
+    color: #444;
+}
+
+header p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+main {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+}
+
+#downloadForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#youtubeUrl {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+#youtubeUrl:focus {
+    outline: none;
+    border-color: #e664a6; /* Pink focus */
+}
+
+#fetchButton {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to right, #e61e1e, #e664a6); /* Red to Pink */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.1s ease;
+}
+
+#fetchButton:hover {
+    opacity: 0.9;
+}
+#fetchButton:active {
+    transform: scale(0.98);
+}
+#fetchButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Screen Reader Only */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+
+/* Status Indicators (Loading/Error) */
+.status {
+    margin: 20px 0;
+    font-size: 1.1em;
+    display: flex; /* Use flex for spinner alignment */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.error-message {
+    color: #D8000C; /* Error red */
+    background-color: #FFD2D2; /* Light red background */
+    padding: 10px;
+    border: 1px solid #D8000C;
+    border-radius: 5px;
+}
+
+/* Simple CSS Spinner */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 4px solid rgba(230, 30, 30, 0.3); /* Light Red */
+  border-left-color: #e61e1e; /* Red */
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Results Area */
+#results {
+    margin-top: 30px;
+    text-align: left; /* Align text left within the results */
+}
+
+#videoTitle {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+#videoThumbnail {
+    display: block;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto 20px auto; /* Center image */
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#results h3 {
+    margin-bottom: 15px;
+    text-align: center;
+    color: #555;
+    font-weight: 600;
+}
+
+#downloadLinks {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center links horizontally */
+    gap: 10px; /* Space between links */
+}
+
+#downloadLinks li {
+    margin-bottom: 10px; /* Add space below each link if they wrap */
+}
+
+#downloadLinks a {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #e9ecef;
+    color: #495057;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.95em;
+}
+
+#downloadLinks a:hover {
+    background-color: #dee2e6;
+    color: #212529;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    padding: 15px;
+    font-size: 0.85em;
+    color: #777;
+    text-align: center;
+    max-width: 800px;
+    border-top: 1px solid #eee;
+}
+
+footer strong {
+    color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+    }
+
+    #downloadForm {
+        flex-direction: column;
+        align-items: stretch; /* Make input/button full width */
+    }
+
+    #videoThumbnail {
+        max-width: 100%;
+    }
+}
